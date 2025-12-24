@@ -60,7 +60,6 @@ if __name__ == "__main__":
 
     print(account_info)
 
-
 # Wait for user input to print
 # user_input = input("Press Enter to continue...")
 # print(f"User input: {user_input}")
@@ -72,3 +71,4 @@ if __name__ == "__main__":
 #     print(result)
 # except Exception as e:
 #     print(f"Error fetching exchange info: {e}")
+
