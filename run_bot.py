@@ -107,15 +107,3 @@ if __name__ == "__main__":
         # Open Orders: [{'symbol': 'BNBUSDT', 'orderId': 10703322363, 'clientOrderId': '8QMasFtsfXem3qM9IfJnmn', 'price': '907.61000000', 'origQty': '0.01600000', 'executedQty': '0.00000000', 'cumulativeQuoteQty': '0.00000000', 'status': 'NEW', 'timeInForce': 'GTC', 'type': 'LIMIT', 'side': 'BUY', 'stopPrice': '0.00000000', 'time': 1767693942327, 'updateTime': None, 'isWorking': None, 'origQuoteOrderQty': '0.00000000'}]
 
         ask_user_input()
-
-# Wait for user input to print
-# user_input = input("Press Enter to continue...")
-# print(f"User input: {user_input}")
-
-# service = ExchangeInfoService()
-# try:
-#     result = service.fetch_exchange_info()
-#     print("Exchange Info Response:")
-#     print(result)
-# except Exception as e:
-#     print(f"Error fetching exchange info: {e}")
