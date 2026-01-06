@@ -13,3 +13,9 @@ class BasicVersionService:
 
     def get_account(self):
         return self.api.get_account()
+
+    def get_open_orders(self, params):
+        return self.api.get_open_orders(params)
+
+    def place_order(self, params):
+        return self.api.place_order(params)

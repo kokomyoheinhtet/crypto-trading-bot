@@ -31,14 +31,24 @@ class APIClient:
 
         return self.session.get(f"{BASE_URL}{ACCOUNT_INFORMATION}").json()
 
-    def place_order(self, data):
-        return self.session.post(f"{BASE_URL}/api/v1/order", json=data).json()
+    def place_order(self, params=None):
+        if params is None:
+            params = {}
+        params['timestamp'] = _get_timestamp()
+        params['signature'] = self._generate_signature(params=params)
+        self.session.params = params
+        return self.session.post(f"{BASE_URL}/api/v1/order").json()
 
     def get_order(self, order_id, symbol):
         return self.session.get(f"{BASE_URL}/api/v1/order", params={"orderId": order_id, "symbol": symbol}).json()
 
-    def get_open_orders(self, symbol):
-        return self.session.get(f"{BASE_URL}/api/v1/openOrders", params={"symbol": symbol}).json()
+    def get_open_orders(self, params=None):
+        if params is None:
+            params = {}
+        params['timestamp'] = _get_timestamp()
+        params['signature'] = self._generate_signature(params=params)
+        self.session.params = params
+        return self.session.get(f"{BASE_URL}/api/v1/openOrders").json()
 
     def _generate_signature(self, params=None):
         msg = ""
