@@ -1,4 +1,4 @@
-from src.api_client import APIClient
+from src.client.api_client import APIClient
 
 
 class BasicVersionService:
@@ -19,3 +19,6 @@ class BasicVersionService:
 
     def place_order(self, params):
         return self.api.place_order(params)
+
+    def delete_open_orders(self, params):
+        return self.api.delete_open_orders(params)

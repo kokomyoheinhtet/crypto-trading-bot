@@ -4,7 +4,8 @@ import time
 
 import requests
 
-from .config import API_KEY, API_SECRET, BASE_URL, EXCHANGE_INFO_PATH, BOOK_TICKER_PATH, ACCOUNT_INFORMATION
+from src.config.config import API_KEY, API_SECRET, BASE_URL, EXCHANGE_INFO_PATH, BOOK_TICKER_PATH, ACCOUNT_INFORMATION, \
+    ORDERS_PATH, OPEN_ORDERS_PATH
 
 
 def _get_timestamp():
@@ -37,10 +38,10 @@ class APIClient:
         params['timestamp'] = _get_timestamp()
         params['signature'] = self._generate_signature(params=params)
         self.session.params = params
-        return self.session.post(f"{BASE_URL}/api/v1/order").json()
+        return self.session.post(f"{BASE_URL}{ORDERS_PATH}").json()
 
     def get_order(self, order_id, symbol):
-        return self.session.get(f"{BASE_URL}/api/v1/order", params={"orderId": order_id, "symbol": symbol}).json()
+        return self.session.get(f"{BASE_URL}{ORDERS_PATH}", params={"orderId": order_id, "symbol": symbol}).json()
 
     def get_open_orders(self, params=None):
         if params is None:
@@ -48,7 +49,15 @@ class APIClient:
         params['timestamp'] = _get_timestamp()
         params['signature'] = self._generate_signature(params=params)
         self.session.params = params
-        return self.session.get(f"{BASE_URL}/api/v1/openOrders").json()
+        return self.session.get(f"{BASE_URL}{OPEN_ORDERS_PATH}").json()
+
+    def delete_open_orders(self, params=None):
+        if params is None:
+            params = {}
+        params['timestamp'] = _get_timestamp()
+        params['signature'] = self._generate_signature(params=params)
+        self.session.params = params
+        return self.session.delete(f"{BASE_URL}{OPEN_ORDERS_PATH}").json()
 
     def _generate_signature(self, params=None):
         msg = ""

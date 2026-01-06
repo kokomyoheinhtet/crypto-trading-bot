@@ -13,6 +13,8 @@ SYMBOL = os.getenv('SYMBOL', '')
 EXCHANGE_INFO_PATH = os.getenv('EXCHANGE_INFO_PATH', '')
 BOOK_TICKER_PATH = os.getenv('BOOK_TICKER_PATH', '')
 ACCOUNT_INFORMATION = os.getenv('ACCOUNT_INFORMATION', '')
+ORDERS_PATH = os.getenv('ORDERS_PATH', '')
+OPEN_ORDERS_PATH = os.getenv('OPEN_ORDERS_PATH', '')
 
 # Trading parameters
 default_symbol = os.getenv('SYMBOL', 'BTCUSDT')

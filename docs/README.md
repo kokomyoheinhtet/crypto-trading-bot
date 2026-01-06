@@ -30,7 +30,7 @@ https://www.binance.th/api-docs/en/#rest-open-api
 5. Set up your Binance API keys in the `config.py` file.
 6. Run the bot:
    ```bash
-   python run_bot.py
+   python run_basic_bot.py
    -- or
    python run_bot_pro.py
    ```
